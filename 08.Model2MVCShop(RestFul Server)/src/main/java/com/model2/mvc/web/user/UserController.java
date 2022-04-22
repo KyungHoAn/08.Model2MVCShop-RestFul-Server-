@@ -164,7 +164,6 @@ public class UserController {
 		
 		// Business logic ผ๖วเ
 		Map<String , Object> map=userService.getUserList(search);
-		
 		Page resultPage = new Page( search.getCurrentPage(), ((Integer)map.get("totalCount")).intValue(), pageUnit, pageSize);
 		System.out.println(resultPage);
 		
