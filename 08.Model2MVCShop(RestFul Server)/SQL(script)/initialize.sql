@@ -8,47 +8,47 @@ DROP SEQUENCE seq_transaction_tran_no;
 
 
 CREATE SEQUENCE seq_product_prod_no		 	INCREMENT BY 1 START WITH 10000;
-CREATE SEQUENCE seq_transaction_tran_no	INCREMENT BY 1 START WITH 10000;
+CREATE SEQUENCE seq_transaction_tran_no	 INCREMENT BY 1 START WITH 10000;
 
 
 CREATE TABLE users ( 
-	user_id 			VARCHAR2(20)	NOT NULL,
-	user_name 	VARCHAR2(50)	NOT NULL,
-	password 		VARCHAR2(10)	NOT NULL,
-	role 					VARCHAR2(5) 		DEFAULT 'user',
-	ssn 					VARCHAR2(13),
-	cell_phone 		VARCHAR2(14),
-	addr 				VARCHAR2(100),
-	email 				VARCHAR2(50),
-	reg_date 		DATE,
-	PRIMARY KEY(user_id)
+	user_id 			 VARCHAR2(20)	 NOT NULL,
+	user_name 	 VARCHAR2(50)	 NOT NULL,
+	password 		 VARCHAR2(10)	 NOT NULL,
+	role 			 		 VARCHAR2(5) 		 DEFAULT 'user',
+	ssn 					 VARCHAR2(13),
+	cell_phone 		 VARCHAR2(14),
+	addr 				 VARCHAR2(100),
+	email 				 VARCHAR2(50),
+	reg_date 		 DATE,
+	PRIMARY  KEY(user_id)
 );
 
 
 CREATE TABLE product ( 
-	prod_no 						NUMBER 				NOT NULL,
-	prod_name 				VARCHAR2(100) 	NOT NULL,
-	prod_detail 				VARCHAR2(200),
-	manufacture_day		VARCHAR2(8),
-	price 							NUMBER(10),
-	image_file 					VARCHAR2(100),
-	reg_date 					DATE,
-	PRIMARY KEY(prod_no)
+	prod_no 						 NUMBER 				 NOT NULL,
+	prod_name 				 VARCHAR2(100) 	 NOT NULL,
+	prod_detail 				 VARCHAR2(200),
+	manufacture_day		 VARCHAR2(8),
+	price 							 NUMBER(10),
+	image_file 					 VARCHAR2(100),
+	reg_date 					 DATE,
+	PRIMARY  KEY(prod_no)
 );
 
 CREATE TABLE transaction ( 
 	tran_no 					NUMBER 			NOT NULL,
 	prod_no 					NUMBER(16)		NOT NULL REFERENCES product(prod_no),
 	buyer_id 				VARCHAR2(20)	NOT NULL REFERENCES users(user_id),
-	payment_option		CHAR(3),
-	receiver_name 		VARCHAR2(20),
-	receiver_phone		VARCHAR2(14),
-	demailaddr 			VARCHAR2(100),
-	dlvy_request 			VARCHAR2(100),
-	tran_status_code	CHAR(3),
-	order_data 			DATE,
-	dlvy_date 				DATE,
-	PRIMARY KEY(tran_no)
+	payment_option		 CHAR(3),
+	receiver_name 		 VARCHAR2(20),
+	receiver_phone		 VARCHAR2(14),
+	demailaddr 			 VARCHAR2(100),
+	dlvy_request 			 VARCHAR2(100),
+	tran_status_code	  CHAR(3),
+	order_data 			  DATE,
+	dlvy_date 				  DATE,
+	PRIMARY  KEY(tran_no)
 );
 
 

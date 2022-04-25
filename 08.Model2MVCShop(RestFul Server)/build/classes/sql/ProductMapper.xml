@@ -41,9 +41,9 @@
 		<set>
 			prod_name = #{prodName},
 			prod_detail = #{prodDetail},
-			manufacture_day = #{manuDate},
-			price = #{price},
-			image_file = #{fileName}
+			manufacture_day = #{manuDate:VARCHAR},
+			price = #{price:NUMERIC},
+			image_file = #{fileName:VARCHAR}
 		</set>
 		WHERE prod_no = #{prodNo}
 	</update>
