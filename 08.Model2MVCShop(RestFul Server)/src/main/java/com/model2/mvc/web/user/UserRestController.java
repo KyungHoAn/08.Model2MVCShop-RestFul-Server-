@@ -38,6 +38,11 @@ public class UserRestController {
 		System.out.println(this.getClass());
 	}
 	
+	@Value("#{commonProperties['pageUnit']}")
+	int pageUnit;
+	@Value("#{commonProperties['pageSize']}")
+	int pageSize;
+	
 	@RequestMapping( value="json/getUser/{userId}", method=RequestMethod.GET )
 	public User getUser( @PathVariable String userId ) throws Exception{
 		
@@ -71,4 +76,30 @@ public class UserRestController {
 		
 		return user;
 	}
+	
+	@RequestMapping(value="json/updateUser", method=RequestMethod.POST)
+	public User updateUser(@RequestBody User user) throws Exception{
+		System.out.println("/user/json/updateUser : POST");
+		System.out.println("::"+user);
+		userService.updateUser(user);
+		
+		return user;
+	}
+	
+	@RequestMapping(value="json/listUser")
+	public Map listUser(@RequestBody Search search) throws Exception{
+		System.out.println("/user/json/listUser");
+		
+		if(search.getCurrentPage() ==0 ){
+			search.setCurrentPage(1);
+		}
+		search.setPageSize(pageSize);
+		
+		Map<String, Object> map = userService.getUserList(search);
+		System.out.println("============");
+		System.out.println(map.get("list"));	
+		
+		return map;
+	}
+	
 }

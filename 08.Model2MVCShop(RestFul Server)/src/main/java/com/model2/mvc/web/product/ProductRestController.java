@@ -91,5 +91,4 @@ public class ProductRestController {
 		productService.updateProduct(product);
 		return product;
 	}
-
 }

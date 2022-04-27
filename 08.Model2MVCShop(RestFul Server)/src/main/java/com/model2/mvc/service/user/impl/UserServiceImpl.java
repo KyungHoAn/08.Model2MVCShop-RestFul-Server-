@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserService{
 	public Map<String , Object > getUserList(Search search) throws Exception {
 		List<User> list= userDao.getUserList(search);
 		int totalCount = userDao.getTotalCount(search);
-		
+
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("list", list );
 		map.put("totalCount", new Integer(totalCount));

@@ -40,9 +40,9 @@
 	   	UPDATE users
 	   	<set>
 	   		user_name 	= #{userName} ,
-			cell_phone	= #{phone},
-			addr 				= #{addr} ,
-			email				=	#{email}
+			cell_phone	= #{phone:VARCHAR},
+			addr 				= #{addr:VARCHAR} ,
+			email				=	#{email:NUMERIC}
 	   	</set>
 	   	WHERE user_id = #{userId}
 	 </update>
