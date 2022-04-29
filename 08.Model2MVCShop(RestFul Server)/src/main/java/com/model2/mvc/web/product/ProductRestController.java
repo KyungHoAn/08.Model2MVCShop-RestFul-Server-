@@ -77,9 +77,9 @@ public class ProductRestController {
 		return map;
 	}
 	
-	@RequestMapping(value="json/updateProduct/{prodNo}",method=RequestMethod.GET)
+	@RequestMapping(value="json/updateProductView/{prodNo}",method=RequestMethod.GET)
 	public Product updateProduct(@PathVariable int prodNo) throws Exception {
-		System.out.println("product/json/updateProduct: GET");
+		System.out.println("product/json/updateProductView: GET");
 		
 		return productService.getProduct(prodNo);
 	}
